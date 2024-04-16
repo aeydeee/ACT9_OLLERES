@@ -9,7 +9,16 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Product::all();
+        $products = 'Product List form in ProductController';
+//        return Product::all();
+        return view('products.index', [
+            'products' => $products
+        ]);
+    }
+
+    public function create()
+    {
+        return view('products.create');
     }
 
     public function store(Request $request)
@@ -25,6 +34,7 @@ class ProductController extends Controller
 
         return Product::create($data);
     }
+
 
     public function show(Product $product)
     {
